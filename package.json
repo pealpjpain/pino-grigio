@@ -1,0 +1,33 @@
+{
+	"name": "pino-adapter",
+	"version": "0.1.0",
+	"license": "GPLv3",
+	"private": false,
+	"description": "An adapter for the Pino logger with callsite resolution",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/phgroe/pino-adapter.git"
+	},
+	"main": "dist/main.js",
+	"engines": {
+		"node": "^10.9.0"
+	},
+	"scripts": {
+		"clean": "rm -rf dist/*",
+		"build": "npm run clean && node_modules/.bin/tsc --pretty --project tsconfig.json",
+		"watch": "node_modules/.bin/tsc --pretty --project tsconfig.json --watch"
+	},
+	"authors": [
+		"Philipp Gröschler"
+	],
+	"dependencies": {
+		"callsite": "1.0.0",
+		"pino": "5.11.1"
+	},
+	"devDependencies": {
+		"@phgroe/apputils": "github:phgroe/node-apputils#master",
+		"@types/callsite": "1.0.30",
+		"@types/pino": "5.8.5",
+		"typescript": "^3.3.0"
+	}
+}
