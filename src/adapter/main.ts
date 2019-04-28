@@ -1,6 +1,7 @@
 import * as callsite from 'callsite';
 import * as pino from 'pino';
 
+import { dirname } from 'path';
 import { Logger } from 'pino';
 import { createChannelName } from './channelName';
 
@@ -16,7 +17,9 @@ let mainLogger : Logger = null
 
 // Initialise logging
 
-export function initLogging (cfg : MainLoggerConfig)
+export function initLogging (
+	cfg : MainLoggerConfig = createDefaultConfig()
+)
 {
 	if (mainLogger !== null) {
 		throw new Error ('Logging has already been initialised')
@@ -28,7 +31,7 @@ export function initLogging (cfg : MainLoggerConfig)
 
 // Create log channels
 
-export const createLogger = (channelName? : string) : Logger =>
+export const createLogger = (channelName? : string[]) : Logger =>
 (
 	mainLogger.child({
 		channel: channelName || createChannelName (
@@ -37,3 +40,7 @@ export const createLogger = (channelName? : string) : Logger =>
 		),
 	})
 );
+
+const createDefaultConfig = () : MainLoggerConfig => ({
+	projectRoot: dirname (require.main.filename),
+});

@@ -1,14 +1,14 @@
 {
-	"name": "pino-adapter",
+	"name": "@phgroe/pino-grigio",
 	"version": "0.1.0",
 	"license": "GPLv3",
 	"private": false,
-	"description": "An adapter for the Pino logger with callsite resolution",
+	"description": "A suite for the Pino logger with callsite resolution",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/phgroe/pino-adapter.git"
+		"url": "https://github.com/phgroe/pino-grigio.git"
 	},
-	"main": "dist/main.js",
+	"main": "dist/adapter/main.js",
 	"engines": {
 		"node": "^10.9.0"
 	},
@@ -21,13 +21,20 @@
 		"Philipp Gröschler"
 	],
 	"dependencies": {
-		"callsite": "1.0.0",
-		"pino": "5.11.1"
+		"callsite": "^1.0.0",
+		"pino": "^5.11.0",
+		"pump": "^3.0.0",
+		"readable-stream": "^3.2.0",
+		"split2": "^3.1.0",
+		"sprintf-js": "^1.1.2",
+		"supports-color": "^6.1.0"
 	},
 	"devDependencies": {
-		"@phgroe/apputils": "github:phgroe/node-apputils#master",
-		"@types/callsite": "1.0.30",
-		"@types/pino": "5.8.5",
-		"typescript": "^3.3.0"
+		"@phgroe/apputils": ">=0.0.9",
+		"@types/callsite": ">=1.0.30",
+		"@types/pino": ">=5.8.5",
+		"@types/sprintf-js": ">=1.1.2",
+		"@types/supports-color": ">=5.3.0",
+		"typescript": ">=3.3.0"
 	}
 }

@@ -14,7 +14,7 @@
 		"declaration": true,
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"noImplicitAny": true,
+		"noImplicitAny": false,
 		"preserveConstEnums": true,
 		"removeComments": true,
 		"sourceMap": true,

@@ -35,17 +35,10 @@ export function splitChannelName (
 	fileName : string
 ) : string[]
 {
-	console.log (fileName);
-
 	const a = fileName.replace (cfg.projectRoot, '');
-	console.log('/ root : %s', a);
-
 	const b = a.replace (regexFileSuffix, '');
-	console.log('/ suffix : %s', b);
-
 	// TODO Flag to disable or customize exec-base removal
 	const c = b.replace (regexExecBase, '');
-	console.log('/ base : %s', c);
 
 	const z = c.split (sep);
 	return deleteDuplicates (z);
