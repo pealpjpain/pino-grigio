@@ -83,9 +83,20 @@ export function prettyPrinterFactory (options : PrettyOptions)
 			output += getLogLevelTag (input.level) + ' '
 		}
 
-		// Log channel
+		// Log channel name
 		{
-			let channelName = input.channel.join (':')
+			let channelName
+
+			if (input.channel) {
+				channelName = input.channel.join (':')
+			}
+			else if (input.ns) {
+				channelName = input.ns
+			}
+			else {
+				channelName = 'debug'
+			}
+
 			const summe = quersumme (channelName)
 			const farbe = (summe % 210) + 21
 
@@ -94,12 +105,10 @@ export function prettyPrinterFactory (options : PrettyOptions)
 
 		output += input.msg
 
-		// output += inspect(input)
-
 		return output + EOL
 	}
 
-	print.channelColorMap = {};
+	print.channelColorMap = {}
 
 	return print
 }

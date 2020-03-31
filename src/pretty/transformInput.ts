@@ -4,7 +4,8 @@ export type LogObject = {
 	msg? : string
 	pid? : number
 	hostname? : string
-	channel : string[]
+	channel? : string[]
+	ns? : string
 }
 
 export type LogThis = {
