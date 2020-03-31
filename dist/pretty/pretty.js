@@ -45,7 +45,16 @@ function prettyPrinterFactory(options) {
             output += getLogLevelTag(input.level) + ' ';
         }
         {
-            var channelName = input.channel.join(':');
+            var channelName = void 0;
+            if (input.channel) {
+                channelName = input.channel.join(':');
+            }
+            else if (input.ns) {
+                channelName = input.ns;
+            }
+            else {
+                channelName = 'debug';
+            }
             var summe = quersumme(channelName);
             var farbe = (summe % 210) + 21;
             output += color_1.colorify(farbe, channelName) + ' ';
