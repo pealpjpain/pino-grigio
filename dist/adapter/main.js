@@ -12,15 +12,26 @@ function initLogging(cfg) {
         throw new Error('Logging has already been initialised');
     }
     mainConfig = cfg;
-    mainLogger = pino();
+    mainLogger = pino(mainConfig);
 }
 exports.initLogging = initLogging;
-exports.createLogger = function (channelName) {
-    return (mainLogger.child({
-        channel: channelName || channelName_1.createChannelName(mainConfig, callsite()),
-    }));
-};
+function createLogger(channelName) {
+    var channel = (function () {
+        if (Array.isArray(channelName)) {
+            return channelName;
+        }
+        if (typeof channelName === 'string') {
+            return [channelName];
+        }
+        return channelName_1.createChannelName(mainConfig, callsite());
+    })();
+    return mainLogger.child({
+        channel: channel,
+    });
+}
+exports.createLogger = createLogger;
 var createDefaultConfig = function () { return ({
+    level: 'info',
     projectRoot: path_1.dirname(require.main.filename),
 }); };
 //# sourceMappingURL=main.js.map

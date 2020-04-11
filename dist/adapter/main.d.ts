@@ -1,6 +1,6 @@
-import * as pino from 'pino';
-export interface MainLoggerConfig {
+import { Logger, LoggerOptions } from 'pino';
+export interface MainLoggerConfig extends LoggerOptions {
     projectRoot: string;
 }
 export declare function initLogging(cfg?: MainLoggerConfig): void;
-export declare const createLogger: (channelName?: string[]) => pino.Logger;
+export declare function createLogger(channelName?: string | string[]): Logger;
