@@ -36,14 +36,15 @@ export function transformInput (input : any, eol : string) : LogThis
 	}
 
 	return {
-		input: input.toString() + eol,
+		input: input.toString () + eol,
 		doLog: false,
 	}
 }
 
+// Logger's little helpers
 
 const isObject = (o : any) => (
-  Object.prototype.toString.apply(o) === '[object Object]'
+	Object.prototype.toString.apply (o) === '[object Object]'
 )
 
 const isString = (o : any) => (
@@ -51,5 +52,5 @@ const isString = (o : any) => (
 )
 
 const isPino = (o : { v? : number }) => (
-  o !== undefined && o.hasOwnProperty('v') && o.v === 1
+	o !== undefined && o.hasOwnProperty ('v') && o.v === 1
 )

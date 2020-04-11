@@ -1,5 +1,3 @@
-import { inspect } from '@phgroe/apputils'
-
 import { transformInput } from './transformInput'
 
 import {
@@ -85,7 +83,7 @@ export function prettyPrinterFactory (options : PrettyOptions)
 
 		// Log channel name
 		{
-			let channelName
+			let channelName : string
 
 			if (input.channel) {
 				channelName = input.channel.join (':')
