@@ -1,11 +1,12 @@
-import * as callsite from 'callsite';
-import * as pino from 'pino';
+import * as callsite from 'callsite'
+import * as pino from 'pino'
 
-import { dirname } from 'path';
-import { Logger, LoggerOptions } from 'pino';
-import { createChannelName } from './channelName';
+import { dirname } from 'path'
+import { Logger, LoggerOptions } from 'pino'
+import { createChannelName } from './channelName'
 
 // Main Logger Configuration
+
 export interface MainLoggerConfig extends LoggerOptions {
 	projectRoot : string
 }
@@ -18,7 +19,7 @@ let mainLogger : Logger = null
 // Initialise logging
 
 export function initLogging (
-	cfg : MainLoggerConfig = createDefaultConfig()
+	cfg : MainLoggerConfig = createDefaultConfig ()
 )
 {
 	if (mainLogger !== null) {
@@ -31,19 +32,21 @@ export function initLogging (
 
 // Create log channels
 
-export function createLogger (channelName? : string | string[]) : Logger
+export function createLogger (channelName? : string | string []) : Logger
 {
-	const channel = (() => {
-		if (Array.isArray (channelName)) {
-			return channelName;
-		}
+	let channel : string []
 
-		if (typeof channelName === 'string') {
-			return [ channelName ];
-		}
-
-		return createChannelName (mainConfig, callsite ())
-	})()
+	if (channelName === undefined) {
+		channel = createChannelName (mainConfig, callsite ())
+	}
+	else if (Array.isArray (channelName)) {
+		console.log ('inside array')
+		channel = channelName
+	}
+	else if (typeof channelName === 'string') {
+		console.log ('inside string')
+		channel = [ channelName ]
+	}
 
 	return mainLogger.child ({
 		channel,
