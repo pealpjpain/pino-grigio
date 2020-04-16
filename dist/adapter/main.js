@@ -21,11 +21,9 @@ function createLogger(channelName) {
         channel = channelName_1.createChannelName(mainConfig, callsite());
     }
     else if (Array.isArray(channelName)) {
-        console.log('inside array');
         channel = channelName;
     }
     else if (typeof channelName === 'string') {
-        console.log('inside string');
         channel = [channelName];
     }
     return mainLogger.child({
