@@ -40,11 +40,9 @@ export function createLogger (channelName? : string | string []) : Logger
 		channel = createChannelName (mainConfig, callsite ())
 	}
 	else if (Array.isArray (channelName)) {
-		console.log ('inside array')
 		channel = channelName
 	}
 	else if (typeof channelName === 'string') {
-		console.log ('inside string')
 		channel = [ channelName ]
 	}
 
