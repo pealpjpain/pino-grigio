@@ -1,7 +1,7 @@
 {
 	"name": "@phgroe/pino-grigio",
-	"version": "0.3.0",
-	"license": "GPLv3",
+	"version": "0.3.1",
+	"license": "MIT",
 	"private": false,
 	"description": "A suite for the Pino logger with callsite resolution",
 	"repository": {
