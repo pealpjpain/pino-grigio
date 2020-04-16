@@ -16,15 +16,18 @@ function initLogging(cfg) {
 }
 exports.initLogging = initLogging;
 function createLogger(channelName) {
-    var channel = (function () {
-        if (Array.isArray(channelName)) {
-            return channelName;
-        }
-        if (typeof channelName === 'string') {
-            return [channelName];
-        }
-        return channelName_1.createChannelName(mainConfig, callsite());
-    })();
+    var channel;
+    if (channelName === undefined) {
+        channel = channelName_1.createChannelName(mainConfig, callsite());
+    }
+    else if (Array.isArray(channelName)) {
+        console.log('inside array');
+        channel = channelName;
+    }
+    else if (typeof channelName === 'string') {
+        console.log('inside string');
+        channel = [channelName];
+    }
     return mainLogger.child({
         channel: channel,
     });
