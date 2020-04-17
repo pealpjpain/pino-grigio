@@ -1,12 +1,12 @@
 {
-	"name": "@phgroe/pino-grigio",
-	"version": "0.3.1",
+	"name": "@pealpjpain/pino-grigio",
+	"version": "0.3.2",
 	"license": "MIT",
 	"private": false,
 	"description": "A suite for the Pino logger with callsite resolution",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/phgroe/pino-grigio.git"
+		"url": "https://github.com/pealpjpain/pino-grigio.git"
 	},
 	"main": "dist/adapter/main.js",
 	"engines": {
